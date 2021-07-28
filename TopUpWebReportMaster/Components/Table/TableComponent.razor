@@ -1,0 +1,62 @@
+@*
+    // Dataset header values
+    // "ID","DATETIME","CLIENTNUMBER","ENTITYNUMBER","DOCUMENTTYPEID","DOCUMENTYEAR","DOCUMENTNUMBER","PURCHASEVALUE","PROVISIONNUMBER","TIMEOUT"
+*@
+
+@using TopUpWebReportMaster.Controllers
+@using System.Collections.Generic
+@using TopUpWebReportMaster.Models
+@inject DataSetReportControllerService DatasetService
+
+<div class="mt-4">
+    <div id="tabele-filters">
+    </div>
+
+    <div id="table-view" class="table-responsive">
+        <table class="table table-sm table-bordered">
+            @* <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>DATETIME</td>
+                    <td>CLIENTNUMBER</td>
+                    <td>ENTITYNUMBER</td>
+                    <td>DOCUMENTTYPEID</td>
+                    <td>DOCUMENTYEAR</td>
+                    <td>DOCUMENTNUMBER</td>
+                    <td>PROVISIONNUMBER</td>
+                    <td>TIMEOUT</td>
+                </tr>
+            </thead> *@
+            <tbody>
+                @* // It will return values with header not skiped
+                   // you can skip header and customize header values
+                   // @Edilson Mucanze
+                *@
+                @foreach (var data in dataset)
+                {
+                    <tr>
+                        <td>@data.ID</td>
+                        <td class="text-nowrap">@data.DATETIME</td>
+                        <td>@data.CLIENTNUMBER</td>
+                        <td>@data.ENTITYNUMBER</td>
+                        <td>@data.DOCUMENTTYPEID</td>
+                        <td>@data.DOCUMENTYEAR</td>
+                        <td>@data.DOCUMENTNUMBER</td>
+                        <td>@data.PROVISIONNUMBER</td>
+                        <td>@data.TIMEOUT</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@code {
+    private List<DataSet> dataset;
+
+    protected override void OnInitialized()
+    {
+        dataset = DatasetService.ReturnDataSetInformation();
+    }
+}
