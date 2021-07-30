@@ -9,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TopUpWebReportMaster.Controllers;
-using TopUpWebReportMaster.Data;
 
 namespace TopUpWebReportMaster {
     public class Startup {
@@ -24,7 +23,6 @@ namespace TopUpWebReportMaster {
         public void ConfigureServices (IServiceCollection services) {
             services.AddRazorPages ();
             services.AddServerSideBlazor ();
-            services.AddSingleton<WeatherForecastService> ();
             services.AddSingleton<DataSetReportControllerService> ();
         }
 
@@ -38,7 +36,7 @@ namespace TopUpWebReportMaster {
 
             app.UseStaticFiles ();
 
-            app.UseRouting ();
+            IApplicationBuilder applicationBuilder = app.UseRouting ();
 
             app.UseEndpoints (endpoints => {
                 endpoints.MapBlazorHub ();

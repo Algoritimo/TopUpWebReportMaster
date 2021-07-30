@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="BlazorInputFile" />
+    <Watch Include="**\*.cs" />
+    <Watch Include="**\*.razor" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BlazorInputFile" Version="0.2.0" />
+  </ItemGroup>
 </Project>

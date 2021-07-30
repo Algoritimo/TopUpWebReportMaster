@@ -9,6 +9,7 @@ namespace TopUpWebReportMaster.Models {
         public string DOCUMENTTYPEID { get; set; }
         public string DOCUMENTYEAR { get; set; }
         public string DOCUMENTNUMBER { get; set; }
+        public string PURCHASEVALUE { get; set; }
         public string PROVISIONNUMBER { get; set; }
         public string TIMEOUT { get; set; }
     }
