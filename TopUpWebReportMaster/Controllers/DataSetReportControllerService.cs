@@ -23,7 +23,7 @@ namespace TopUpWebReportMaster.Controllers {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters (",");
 
-                // for (int counter = 0; counter <= 3; counter++) { // you can comment this line
+                // for (int counter = 0; counter <= 5000; counter++) { // you can comment this line
                 while (!parser.EndOfData) { // and uncomment this one to load all data. notice that the loading is not asynchronous and will take time to load all data
                     //Processing row
                     string[] fields = parser.ReadFields ();
